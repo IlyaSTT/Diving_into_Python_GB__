@@ -26,7 +26,7 @@ if __name__ == '__main__':
     res = gen_file_data(line_args.dir_path)
     print(res)
 
-#
+####
 @pytest.fixture
 def temp_dir():
     os.mkdir('test_dir')
@@ -46,18 +46,18 @@ def file_data():
     return namedtuple('Object',
                       ['name_file', 'ext', 'full_path', 'directory'])
 
-#
+####
 def test_gen_file_data_correct_file_name(temp_dir, file_data):
     res = parse_path(temp_dir)
     expected = file_data(name_file='a', ext='', full_path=True, directory='test_dir')
     assert res[0].name_file == expected.name_file
 
-#
+####
 def test_gen_file_data_correct_parent_dir(temp_dir, file_data):
     res = parse_path(temp_dir)
     expected = file_data(name_file='b', ext='', full_path=True, directory='test_dir')
     assert res[1].directory == expected.directory
 
-#
+#####
 def test_gen_file_data_correct_size(temp_dir, file_data):
     assert len(parse_path(temp_dir)) == 4
