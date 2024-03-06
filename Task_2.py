@@ -14,7 +14,7 @@ def parse_path(path: str) -> List[namedtuple]:
         full_path=os.path.abspath(path),
         directory=os.path.abspath(path).split(os.path.sep)[-1]) for file in os.listdir(path)]
 
-
+#
 def gen_file_data(dir_path):
     pass
 
